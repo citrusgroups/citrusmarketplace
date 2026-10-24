@@ -1,0 +1,149 @@
+{
+  "base_commit": "5fce07f58a08d8f4c2ec7cae2617c3a98466d85a",
+  "files": [
+    {
+      "path": "AUTH-FIX-SETUP.md",
+      "sha256": "84d8ccae44b9e5ca2ff31d70e93d37b360e18e7054799f041551aee4d1c1d36b"
+    },
+    {
+      "path": "AUTH-FIX-VERIFICATION.txt",
+      "sha256": "07763ef75c7ac38d8dfe7937d1c6a1037d7e9b2bf87b68ce26183cdb46ed2ff2"
+    },
+    {
+      "path": "app/admin/auth-settings/page.js",
+      "sha256": "6b0a079564c3f423c14780e0ac6e7669bc1ed904ca009a261bfd93ef7d5e40f6"
+    },
+    {
+      "path": "app/admin/error.js",
+      "sha256": "2d2f5eabbaaddae90255025dbe06d2b0d6501d183adf1b64ffac89cb52174ddc"
+    },
+    {
+      "path": "app/admin/layout.js",
+      "sha256": "4d1d6f499681cbce0f4bae8ebe61578c219bddcaa5a1648d1e56f48fc96d6c14"
+    },
+    {
+      "path": "app/api/admin/banners/[id]/route.js",
+      "sha256": "a853714260a1afa953cbf6fa6d5c1ab4f053061005d630fcbaf8f802a56fcc68"
+    },
+    {
+      "path": "app/api/admin/banners/route.js",
+      "sha256": "ce0804421a3b8e2641189f67767508c0018846c329f4f7dea4f8af80d3e5b24b"
+    },
+    {
+      "path": "app/api/admin/catalogs/route.js",
+      "sha256": "6db170eca6dbd1d8a1e2b94b0f09964576224da034e5b7bc2ab430f1a9bc380f"
+    },
+    {
+      "path": "app/api/admin/categories/[id]/route.js",
+      "sha256": "52b9f0e5666cf553928ee84d4f0bff468bae18b8c204d52bcc1c56da698b782d"
+    },
+    {
+      "path": "app/api/admin/categories/route.js",
+      "sha256": "d5beca9229bdfcf744605f6a96918644762d543ca24da6bead5b6a0075c2fb2f"
+    },
+    {
+      "path": "app/api/admin/customers/route.js",
+      "sha256": "764ee1e49ca51c6bfe681152a765151ca53624790c7802f361c034e384ca4d1f"
+    },
+    {
+      "path": "app/api/admin/dashboard/route.js",
+      "sha256": "a4d4d86cee4ec5e58c896e76469b8e40a54eb740457eb7072f5524536a2ce4d7"
+    },
+    {
+      "path": "app/api/admin/messages/route.js",
+      "sha256": "60f7ed03d0f58f6bdd57428a27f4d8dcef4139bade8a6544cb5c4986b3c8ecf3"
+    },
+    {
+      "path": "app/api/admin/orders/[id]/route.js",
+      "sha256": "11e4b725951268bc1d5df2080708b662e30c521b9bcdd4696392aa34127f16ac"
+    },
+    {
+      "path": "app/api/admin/orders/route.js",
+      "sha256": "9b634e0047f49a9911ea73a6445df794e4c7100dad0f1e7a0a230f5770b70feb"
+    },
+    {
+      "path": "app/api/admin/products/[id]/route.js",
+      "sha256": "ec1e8caa0d0980c897c9623aea7540649c6868dfcc2ddb8b8fae5c366ec9501d"
+    },
+    {
+      "path": "app/api/admin/settings/route.js",
+      "sha256": "f3acb62dc9e5a23903e082a0b6ccdbb3bce1f5f5b9072ca30bcffa5c09f1fc6f"
+    },
+    {
+      "path": "app/api/auth/me/route.js",
+      "sha256": "38b938636abcb432067dda27b04c159b6d198a6c54d2b3afff07a4f9321c8411"
+    },
+    {
+      "path": "app/api/auth/send-otp/route.js",
+      "sha256": "46c6f1bc3eedb6ffee7667867d913d5a81dc8b2e01bb2a6a01c126393842abb9"
+    },
+    {
+      "path": "app/api/coupons/route.js",
+      "sha256": "00516d4eb4e0336f465572f0760eac9cffecc2fd9f3c6db80dda92ccef2f9bf0"
+    },
+    {
+      "path": "app/auth/continue/page.js",
+      "sha256": "5bfda4caf441ef9b232c424e7fcbf1bf4d0214935beea1f572882ed853d85267"
+    },
+    {
+      "path": "app/checkout/page.js",
+      "sha256": "b683d3a2e123af49a00881633e21c58b8f38a4601061acf2bc795c6115f1205d"
+    },
+    {
+      "path": "app/error.js",
+      "sha256": "4051a8365db8e98f48e90d983d4f6ba31f4e115676d2c9423d98b67c71d60112"
+    },
+    {
+      "path": "app/login/page.js",
+      "sha256": "97e701f6d00e5b97630281517c8aa6d21bfa4f633ede72632a93bfc921b7a48e"
+    },
+    {
+      "path": "app/product/[id]/page.js",
+      "sha256": "48f86f59c78937d32ccde695505e59562efda6209a0001b75c00986a5cdaa27a"
+    },
+    {
+      "path": "app/signup/page.js",
+      "sha256": "d0319c69c4cc516626309c1f74d9f551bd2de9035df6ff2d50f0c249138f21b6"
+    },
+    {
+      "path": "components/AdminSidebar.js",
+      "sha256": "46fae9a36d714239822378f905a665d7382909d81a83bf597cd7491ece51e621"
+    },
+    {
+      "path": "components/Footer.js",
+      "sha256": "ac5fd52f43d69b3d36b76bdfebc5417f11c3c10ea2918989dea4a79a01763506"
+    },
+    {
+      "path": "components/Navbar.js",
+      "sha256": "0531e0e2bc4ff2909ddf3a268c1c9e990452d623d0713d18c226a60611e951ea"
+    },
+    {
+      "path": "lib/admin-access.js",
+      "sha256": "458bcf99c4e1973562c73386c9e61e45df1a8405bdd273f90d603c196d00865e"
+    },
+    {
+      "path": "lib/auth-client.js",
+      "sha256": "6ba2d51babb8b43e8c1d502bb12995070b7d65c76f63803ccbfaadf2cdbb1ecb"
+    },
+    {
+      "path": "lib/auth-settings.js",
+      "sha256": "ac00005a5dfacd6b2c4c62fa14a40eb8103ab93697ae754ea52454c5af4d4dea"
+    },
+    {
+      "path": "lib/auth.js",
+      "sha256": "007690dfe21f24097d6c0ef14d80128d6ff7d7147b4c5dabd84a3a743be2f2b0"
+    },
+    {
+      "path": "lib/client-session.js",
+      "sha256": "086333ae448b4eb18027cdfc1f84f4b1e9090d6b85d8a9c62147f96207df6557"
+    },
+    {
+      "path": "proxy.js",
+      "sha256": "7d10bab18f496baad839efddea7223172fa86c52811e8a7d4c58c1f1c4e817fd"
+    },
+    {
+      "path": "tests/auth-session.test.mjs",
+      "sha256": "102eaea13274e6102a8fe3ec18090d737bb1cb19b54587f94f592ddb738592f7"
+    }
+  ]
+}

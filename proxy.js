@@ -1,49 +1,20 @@
 import { NextResponse } from "next/server";
-
-const authPages = ["/login", "/signup"];
+import { getSessionCookie } from "better-auth/cookies";
 
 export function proxy(req) {
-  const { pathname } = req.nextUrl;
-
-  const token =
-    req.cookies.get("better-auth.session_token")?.value ||
-    req.cookies.get("__Secure-better-auth.session_token")?.value;
-
-  const isAuthPage = authPages.includes(pathname);
-
-  // 1. logged in user login/signup nahi ja sakta
-  if (token && isAuthPage) {
-    return NextResponse.redirect(new URL("/", req.url));
+  const pathname = req.nextUrl.pathname;
+  const protectedPage =
+    pathname === "/admin" ||
+    pathname.startsWith("/admin/") ||
+    pathname === "/account" ||
+    pathname.startsWith("/account/") ||
+    pathname === "/wishlist";
+  if (protectedPage && !getSessionCookie(req)) {
+    const login = new URL("/login", req.url);
+    login.searchParams.set("callbackURL", pathname + req.nextUrl.search);
+    return NextResponse.redirect(login);
   }
-
-  // 2. allow all public pages (home, about, cart, checkout)
-  const publicRoutes = [
-    "/",
-    "/about",
-    "/cart",
-    "/checkout",
-    "/login",
-    "/signup",
-    "/contact",
-    "/products",
-    "/services",
-    "/packages",
-    "/faq",
-    "/search",
-  ];
-
-  const isPublicRoute =
-    publicRoutes.includes(pathname) ||
-    pathname.startsWith("/product/") ||
-    pathname.startsWith("/category/");
-
-  if (!token && !isPublicRoute) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
-
+  // A stale cookie must not prevent access to the login page. Real validation stays on the server.
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
-};
+export const config = { matcher: ["/((?!api|_next|.*\\..*).*)"] };

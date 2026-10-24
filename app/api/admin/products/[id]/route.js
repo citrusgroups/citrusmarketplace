@@ -131,14 +131,12 @@ export async function PUT(req, context) {
             .set({ imageUrl: body.imageUrl.trim() })
             .where(eq(productImages.id, existingImage.id));
         else
-          await tx
-            .insert(productImages)
-            .values({
-              id: randomUUID(),
-              productId: id,
-              imageUrl: body.imageUrl.trim(),
-              isPrimary: true,
-            });
+          await tx.insert(productImages).values({
+            id: randomUUID(),
+            productId: id,
+            imageUrl: body.imageUrl.trim(),
+            isPrimary: true,
+          });
       }
     });
 

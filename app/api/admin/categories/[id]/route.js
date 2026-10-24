@@ -1,8 +1,9 @@
+import { withAdmin } from "@/lib/admin-access";
 import { db } from "../../../../../lib/db";
 import { categories, products } from "../../../../../db/schema";
 import { eq } from "drizzle-orm";
 
-export async function DELETE(req, context) {
+async function DELETEHandler(req, context) {
   try {
     const { id } = await context.params;
 
@@ -24,8 +25,11 @@ export async function DELETE(req, context) {
 
     if (usedProducts.length > 0) {
       return Response.json(
-        { error: "Is category ke products mojood hain. Pehle products ki category change/delete karo." },
-        { status: 400 }
+        {
+          error:
+            "Is category ke products mojood hain. Pehle products ki category change/delete karo.",
+        },
+        { status: 400 },
       );
     }
 
@@ -36,7 +40,8 @@ export async function DELETE(req, context) {
     console.log("DELETE_CATEGORY_ERROR:", error);
     return Response.json(
       { error: error.message || "Category delete failed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
+export const DELETE = withAdmin(DELETEHandler);

@@ -1,14 +1,15 @@
+import { withAdmin } from "@/lib/admin-access";
 import { eq } from "drizzle-orm";
 import { db } from "../../../lib/db";
 import { coupons } from ".//../../../db/schema";
 import { nanoid } from "nanoid";
 
-export async function GET() {
+async function GETHandler() {
   const data = await db.select().from(coupons);
   return Response.json(data);
 }
 
-export async function POST(req) {
+async function POSTHandler(req) {
   try {
     const body = await req.json();
 
@@ -27,7 +28,7 @@ export async function POST(req) {
     return Response.json({ error: "Coupon add nahi hua" }, { status: 500 });
   }
 }
-export async function DELETE(req) {
+async function DELETEHandler(req) {
   try {
     const { id } = await req.json();
 
@@ -37,9 +38,9 @@ export async function DELETE(req) {
   } catch (error) {
     console.log("DELETE_COUPON_ERROR:", error);
 
-    return Response.json(
-      { error: "Coupon delete nahi hua" },
-      { status: 500 }
-    );
+    return Response.json({ error: "Coupon delete nahi hua" }, { status: 500 });
   }
 }
+export const GET = withAdmin(GETHandler);
+export const POST = withAdmin(POSTHandler);
+export const DELETE = withAdmin(DELETEHandler);

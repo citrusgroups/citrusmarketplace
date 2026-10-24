@@ -99,27 +99,23 @@ export async function POST(req) {
           "Finish or cancel an existing import first. A maximum of five imports may be active.",
           409,
         );
-      await tx
-        .insert(catalogImportJobs)
-        .values({
-          id,
-          userId: user.id,
-          supplier,
-          sourceName: name,
-          sourceUrl: prepared.sourceUrl || null,
-          autoPublish: form.get("autoPublish") === "true",
-          totalBatches: prepared.parts.length,
-          imageCandidates: prepared.imageCandidates,
-        });
+      await tx.insert(catalogImportJobs).values({
+        id,
+        userId: user.id,
+        supplier,
+        sourceName: name,
+        sourceUrl: prepared.sourceUrl || null,
+        autoPublish: form.get("autoPublish") === "true",
+        totalBatches: prepared.parts.length,
+        imageCandidates: prepared.imageCandidates,
+      });
       for (let i = 0; i < prepared.parts.length; i++)
-        await tx
-          .insert(catalogImportBatches)
-          .values({
-            id: randomUUID(),
-            jobId: id,
-            position: i,
-            payload: prepared.parts[i],
-          });
+        await tx.insert(catalogImportBatches).values({
+          id: randomUUID(),
+          jobId: id,
+          position: i,
+          payload: prepared.parts[i],
+        });
     });
     return Response.json({
       id,

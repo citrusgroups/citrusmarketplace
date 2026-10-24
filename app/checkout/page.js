@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import Link from "next/link";
+import { readClientSession } from "@/lib/client-session";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -25,36 +26,39 @@ export default function Checkout() {
     email: "",
     paymentMethod: "cash",
   });
-  const couponCode = useCartStore(
-    (state) => state.couponCode
-  );
+  const couponCode = useCartStore((state) => state.couponCode);
 
-  const discount = useCartStore(
-    (state) => state.discount
-  );
+  const discount = useCartStore((state) => state.discount);
 
-  const couponApplied = useCartStore(
-    (state) => state.couponApplied
-  );
+  const couponApplied = useCartStore((state) => state.couponApplied);
 
-  const setCouponCode = useCartStore(
-    (state) => state.setCouponCode
-  );
+  const setCouponCode = useCartStore((state) => state.setCouponCode);
 
-  const setCoupon = useCartStore(
-    (state) => state.setCoupon
-  );
-  const clearCoupon = useCartStore(
-    (state) => state.clearCoupon
-  );
+  const setCoupon = useCartStore((state) => state.setCoupon);
+  const clearCoupon = useCartStore((state) => state.clearCoupon);
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const ensureSignedIn = async () => {
+    const session = await readClientSession();
+    if (session.status === "signed-out") {
+      toast.error("Please sign in to place your order.");
+      router.push("/login?callbackURL=%2Fcheckout");
+      return false;
+    }
+    if (session.status !== "signed-in") {
+      toast.error(
+        "We could not check your session. Please retry; you have not been signed out.",
+      );
+      return false;
+    }
+    return true;
+  };
   const placeOrder = async (e) => {
     e?.preventDefault();
     if (!validate()) return;
@@ -64,14 +68,7 @@ export default function Checkout() {
       return;
     }
 
-    const response = await fetch("/api/auth/me");
-    const datatow = await response.json();
-
-    if (!response.ok || !datatow.user) {
-      toast.error("Please login first");
-      router.push("/login");
-      return;
-    }
+    if (!(await ensureSignedIn())) return;
 
     if (
       !form.firstName ||
@@ -143,11 +140,9 @@ export default function Checkout() {
     setCoupon(couponCode, data.discountPercent);
     toast.success("Coupon Applied");
   };
-  const discountAmount =
-    Math.round(subtotal * discount) / 100;
+  const discountAmount = Math.round(subtotal * discount) / 100;
 
-  const total =
-    subtotal - discountAmount;
+  const total = subtotal - discountAmount;
 
   const validate = () => {
     let newErrors = {};
@@ -202,14 +197,7 @@ export default function Checkout() {
       toast.error("Cart is empty");
       return;
     }
-    const res = await fetch("/api/auth/me");
-    const data = await res.json();
-
-    if (!res.ok || !data.user) {
-      toast.error("Please login first");
-      router.push("/login");
-      return;
-    }
+    if (!(await ensureSignedIn())) return;
 
     if (
       !form.firstName ||
@@ -225,15 +213,33 @@ export default function Checkout() {
     if (loading) return;
     setLoading(true);
     try {
-      const orderRes = await fetch("/api/orders", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...form,items:cartItems,couponCode:couponApplied ? couponCode : "",paymentMethod:"stripe"})});
+      const orderRes = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          items: cartItems,
+          couponCode: couponApplied ? couponCode : "",
+          paymentMethod: "stripe",
+        }),
+      });
       const orderData = await orderRes.json().catch(() => ({}));
-      if (!orderRes.ok) throw new Error(orderData.error || "Could not create your order.");
-      const stripeRes = await fetch("/api/stripe/checkout", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({orderId:orderData.orderId})});
+      if (!orderRes.ok)
+        throw new Error(orderData.error || "Could not create your order.");
+      const stripeRes = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderId: orderData.orderId }),
+      });
       const stripeData = await stripeRes.json().catch(() => ({}));
-      if (!stripeRes.ok || !stripeData.url) throw new Error(stripeData.error || "Could not start card payment.");
+      if (!stripeRes.ok || !stripeData.url)
+        throw new Error(stripeData.error || "Could not start card payment.");
       window.location.assign(stripeData.url);
-    } catch (error) { toast.error(error.message || "Unable to connect. Please try again."); }
-    finally { setLoading(false); }
+    } catch (error) {
+      toast.error(error.message || "Unable to connect. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <main className="w-full bg-white py-12 sm:py-16 lg:py-[80px]">
@@ -260,7 +266,10 @@ export default function Checkout() {
                 { label: "First Name*", name: "firstName" },
                 { label: "Company Name", name: "companyName" },
                 { label: "Street Address*", name: "streetAddress" },
-                { label: "Apartment, floor, etc. (optional)", name: "apartment" },
+                {
+                  label: "Apartment, floor, etc. (optional)",
+                  name: "apartment",
+                },
                 { label: "Town/City*", name: "city" },
                 { label: "Phone Number*", name: "phone" },
                 { label: "Email Address*", name: "email" },
@@ -274,9 +283,14 @@ export default function Checkout() {
                     name={field.name}
                     value={form[field.name]}
                     onChange={handleChange}
-                    onClick={field.name === "streetAddress" ? fillSavedAddress : undefined}
-                    className={`mt-[8px] h-[50px] w-full rounded-[4px] bg-[#F5F5F5] px-4 outline-none ${errors[field.name] ? "border border-red-500" : ""
-                      }`}
+                    onClick={
+                      field.name === "streetAddress"
+                        ? fillSavedAddress
+                        : undefined
+                    }
+                    className={`mt-[8px] h-[50px] w-full rounded-[4px] bg-[#F5F5F5] px-4 outline-none ${
+                      errors[field.name] ? "border border-red-500" : ""
+                    }`}
                   />
 
                   {errors[field.name] && (
@@ -303,9 +317,16 @@ export default function Checkout() {
           <div className="w-full pt-0 lg:w-[527px] lg:pt-[32px]">
             <div className="space-y-[32px]">
               {cartItems.map((item) => (
-                <div key={item.id} className="flex items-center justify-between gap-4">
+                <div
+                  key={item.id}
+                  className="flex items-center justify-between gap-4"
+                >
                   <div className="flex min-w-0 items-center gap-[16px] sm:gap-[24px]">
-                    <img src={item.image} alt={item.name} className="h-[54px] w-[54px] shrink-0 object-contain" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-[54px] w-[54px] shrink-0 object-contain"
+                    />
                     <p className="poppins truncate text-[16px] leading-[24px]">
                       {item.name} × {item.quantity}
                     </p>
@@ -352,10 +373,26 @@ export default function Checkout() {
                   </span>
 
                   <div className="flex flex-wrap items-center gap-[8px] pl-[40px] sm:pl-0">
-                    <img src="/images/visa (4).png" alt="no" className="w-[38px]" />
-                    <img src="/images/visa (1).png" alt="no" className="w-[38px]" />
-                    <img src="/images/visa (2).png" alt="no" className="w-[38px]" />
-                    <img src="/images/visa (3).png" alt="no" className="w-[38px]" />
+                    <img
+                      src="/images/visa (4).png"
+                      alt="no"
+                      className="w-[38px]"
+                    />
+                    <img
+                      src="/images/visa (1).png"
+                      alt="no"
+                      className="w-[38px]"
+                    />
+                    <img
+                      src="/images/visa (2).png"
+                      alt="no"
+                      className="w-[38px]"
+                    />
+                    <img
+                      src="/images/visa (3).png"
+                      alt="no"
+                      className="w-[38px]"
+                    />
                   </div>
                 </label>
 
@@ -393,7 +430,11 @@ export default function Checkout() {
 
               <button
                 type="button"
-                onClick={form.paymentMethod === "bank" ? placeOrderWithStripe : placeOrder}
+                onClick={
+                  form.paymentMethod === "bank"
+                    ? placeOrderWithStripe
+                    : placeOrder
+                }
                 disabled={loading}
                 className="h-[56px] w-full cursor-pointer rounded-[4px] bg-[#F97316] poppins text-[16px] font-medium text-white hover:opacity-85 disabled:opacity-60 sm:w-[190px]"
               >

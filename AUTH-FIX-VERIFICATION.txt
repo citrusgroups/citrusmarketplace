@@ -1,0 +1,8 @@
+Production build: PASS.
+Auth/session tests: 7 PASS (actual Better Auth handler with PostgreSQL-compatible test database).
+Catalog regression tests: 10 PASS.
+Stripe regression tests: 7 PASS.
+HTTP checks: footer dashboard link, protected-page return path, stale-cookie login access, admin API guards and twelve consecutive session checks PASS.
+Focused lint: zero errors, one existing-style image optimization warning.
+
+Live Google account consent/callback and production settings were NOT verified. Google Console needs an exact Authorized redirect URI and the production environment must use the correct stable origin/secret. Vercel team access was unavailable. No database schema migration or new dependencies are needed.
