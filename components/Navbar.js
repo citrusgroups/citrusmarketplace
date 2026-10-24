@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { authClient } from "../lib/auth-client";
@@ -66,7 +67,7 @@ export default function Navbar() {
         <nav className="w-full mx-auto  border-b border-black/30 bg-white sticky top-0 z-50">
             <div className="mx-auto flex min-h-[60px] w-full max-w-[1170px] items-center justify-between gap-3 py-2 px-4 lg:px-0">
                 <h1 className="inter text-[24px] font-bold leading-[24px] tracking-[0.03em] text-black">
-                    <Link href="/" aria-label="Citrus Marketplace home" className="flex flex-col items-center"><img src="/images/citrus-marketplace-logo.png" alt="Citrus Marketplace" width="2146" height="733" className="h-auto w-[150px] object-contain" /></Link>
+                    <Link href="/" aria-label="Citrus Products home" className="flex flex-col items-center"><BrandLogo /></Link>
                 </h1>
                 <ul className="hidden items-center gap-5 poppins lg:flex">
                     {navLinks.map(link => <li key={link.href}><Link href={link.href} className={`text-sm whitespace-nowrap hover:text-orange-600 ${pathname === link.href ? "border-b border-orange-500" : ""}`}>{link.name}</Link></li>)}

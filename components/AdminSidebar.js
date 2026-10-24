@@ -11,6 +11,7 @@ export default function AdminSidebar() {
     const links = [
         { name: "Dashboard", href: "/admin" },
         { name: "Products", href: "/admin/products" },
+        { name: "Catalog Import", href: "/admin/catalogs" },
         { name: "Add Categories", href: "/admin/categories" },
         { name: "Orders", href: "/admin/orders" },
         { name: "Customers", href: "/admin/customers" },

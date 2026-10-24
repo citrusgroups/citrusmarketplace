@@ -1,0 +1,15 @@
+Citrus Products update validation
+
+PASS: production Next.js build with placeholder configuration (no real credentials).
+PASS: 10 catalog tests, including a real PostgreSQL-compatible PGlite migration and product import transaction.
+PASS: 7 existing Stripe checkout/webhook tests.
+PASS: HTTP 200 and Citrus Products branding on /, /about, /services.
+PASS: public categories returns eight office categories.
+PASS: unauthenticated /api/admin/catalogs and /api/admin/products return 401.
+PASS: focused ESLint check: zero errors, two image optimization warnings.
+PASS: git diff --check.
+
+Not performed: live Gemini request, live Supabase migration/import, real Stripe transaction.
+Browser screenshots/responsive visual validation unavailable: Chromium download failed.
+
+Required user setup: run the two SQL scripts in order, configure GEMINI_API_KEY, use Node 22.19+ or 24, install dependencies, then deploy the update.

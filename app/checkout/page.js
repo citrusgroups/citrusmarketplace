@@ -144,7 +144,7 @@ export default function Checkout() {
     toast.success("Coupon Applied");
   };
   const discountAmount =
-    Math.round(subtotal * (discount / 100));
+    Math.round(subtotal * discount) / 100;
 
   const total =
     subtotal - discountAmount;

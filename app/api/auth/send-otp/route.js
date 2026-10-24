@@ -45,7 +45,7 @@ export async function POST(req) {
         });
 
         await transporter.sendMail({
-            from: `"Citrus Marketplace" <${process.env.GMAIL_USER}>`,
+            from: `"Citrus Products" <${process.env.GMAIL_USER}>`,
             to: normalizedEmail,
             subject: "Your Signup OTP",
             html: `

@@ -1,3 +1,106 @@
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 export const metadata = { title: "Our story" };
-export default function About() { return <main className="bg-white"><section className="mx-auto grid max-w-[1170px] items-center gap-12 px-4 py-16 lg:grid-cols-2 lg:py-24"><div><p className="text-sm font-semibold text-orange-600">FOUR FRIENDS. ONE SHARED VISION.</p><h1 className="inter mt-5 text-4xl font-semibold leading-tight sm:text-5xl">A fresh approach to commerce.</h1><div className="mt-8 space-y-5 text-base leading-8 text-black/70"><p>Citrus Marketplace started with four friends and a shared idea: build a business around products people can enjoy and support that helps other businesses move forward.</p><p>Our interests brought us into the world of online commerce and Amazon. We wanted to understand the work behind a successful store—from researching products and suppliers to presenting listings clearly and managing everyday operations.</p><p>That shared direction became Citrus Marketplace. Today, our vision brings together a product storefront and practical Amazon business services, with an emphasis on careful research, clear communication and a responsible approach to growth.</p><p>We believe trust is earned through the way we work. We take time to understand each business, explain the next steps and focus on the work that fits its goals. As four friends building together, we bring that same sense of responsibility to every customer relationship.</p></div><Link href="/contact" className="mt-8 inline-block rounded bg-orange-500 px-7 py-4 font-medium text-white hover:bg-orange-600">Let’s build something together</Link></div><div className="rounded bg-orange-50 p-10 sm:p-16"><img src="/images/citrus-marketplace-logo.png" alt="Citrus Marketplace" width="2146" height="733" className="mx-auto h-auto w-full max-w-sm"/><div className="mt-12 grid grid-cols-2 gap-4">{["Shared ambition","Careful research","Clear communication","Long-term thinking"].map((v,i)=><div key={v} className="rounded border border-orange-200 bg-white p-5"><span className="text-2xl font-bold text-orange-500">0{i+1}</span><p className="mt-3 text-sm font-medium">{v}</p></div>)}</div></div></section><section className="border-t border-black/10 bg-[#FAFAFA]"><div className="mx-auto grid max-w-[1170px] gap-8 px-4 py-16 md:grid-cols-3">{[["Our mission","Make product discovery and Amazon business support easier to understand and easier to access."],["Our approach","Research first, communicate clearly and agree on a realistic scope before work begins."],["Our promise","Honest guidance and thoughtful service. We do not promise guaranteed sales, profit or account approvals."]].map(([h,p])=><div key={h}><h2 className="inter text-xl font-semibold">{h}</h2><p className="mt-4 leading-7 text-black/65">{p}</p></div>)}</div></section></main>; }
+const values = [
+  [
+    "Built on friendship",
+    "Four friends, united by a shared ambition and a responsibility to build something lasting.",
+  ],
+  [
+    "Grounded in research",
+    "A considered approach to products, suppliers and the everyday needs of businesses.",
+  ],
+  [
+    "Focused on trust",
+    "Clear communication, realistic commitments and relationships that grow through consistent work.",
+  ],
+];
+export default function About() {
+  return (
+    <main className="bg-white">
+      <section className="mx-auto grid max-w-[1170px] items-center gap-12 px-4 py-16 lg:grid-cols-2 lg:py-24">
+        <div>
+          <p className="text-xs font-semibold tracking-[0.18em] text-orange-600">
+            OUR STORY · EST. 2024
+          </p>
+          <h1 className="inter mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+            Four friends.
+            <br />
+            One shared ambition.
+          </h1>
+          <div className="mt-8 space-y-5 text-base leading-8 text-black/65">
+            <p>
+              Two years ago, in 2024, four friends came together with a simple
+              ambition: to build a company that creates lasting value through
+              thoughtful products, practical services and relationships built on
+              trust. That ambition became CITRUS.
+            </p>
+            <p>
+              From the beginning, we saw commerce as more than buying and
+              selling. We were interested in the work behind it—the research
+              that identifies a worthwhile product, the care involved in
+              evaluating suppliers, and the attention required to serve a
+              customer well. Those principles shaped our direction as we
+              explored online business and the Amazon marketplace.
+            </p>
+            <p>
+              Our Amazon services reflect that same practical approach. We
+              support businesses with product research, wholesale sourcing
+              assistance, listing improvement and account management. Each
+              service begins with understanding the business, agreeing on a
+              clear scope and focusing on work that supports its next step.
+            </p>
+            <p>
+              Citrus Products brings our product vision into the everyday
+              workplace. Our focus is office supplies, paper, stationery and
+              workspace essentials: the items that help businesses, teams and
+              learning environments keep moving. We aim to make that selection
+              easier to explore and the product information easier to
+              understand.
+            </p>
+            <p>
+              We are still the four friends who started with one shared idea. As
+              CITRUS grows, we remain committed to earning trust through careful
+              work, open communication and a long-term view of every
+              relationship.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="mt-8 inline-block rounded bg-orange-500 px-7 py-4 text-sm font-medium text-white"
+          >
+            Let’s talk about your business →
+          </Link>
+        </div>
+        <div className="overflow-hidden rounded bg-orange-50">
+          <div className="p-10 sm:p-14">
+            <BrandLogo className="mx-auto w-full max-w-sm" />
+            <p className="mt-10 text-2xl font-medium leading-relaxed">
+              A shared beginning.
+              <br />
+              <span className="text-orange-600">A purposeful future.</span>
+            </p>
+          </div>
+          <img
+            src="/images/office-essentials-hero.png"
+            alt="Carefully arranged office supplies"
+            className="h-64 w-full object-cover object-right"
+          />
+        </div>
+      </section>
+      <section className="border-t border-black/10 bg-[#FAFAFA]">
+        <div className="mx-auto grid max-w-[1170px] gap-9 px-4 py-16 md:grid-cols-3">
+          {values.map(([h, p], i) => (
+            <article key={h}>
+              <p className="mb-4 text-sm font-semibold text-orange-600">
+                0{i + 1}
+              </p>
+              <h2 className="inter text-xl font-semibold">{h}</h2>
+              <p className="mt-4 leading-7 text-black/65">{p}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}

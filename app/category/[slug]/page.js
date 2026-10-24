@@ -16,7 +16,7 @@ export default function CategoryPage() {
             if (res.ok) {
                 setProducts(
                     Array.isArray(data)
-                        ? data.filter((p) => p.categoryId === slug)
+                        ? data.filter((p) => (p.categoryId === slug || p.categorySlug === slug))
                         : []
                 );
             }

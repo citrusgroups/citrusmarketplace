@@ -1,0 +1,222 @@
+{
+  "base_repository": "citrusgroups/citrusmarketplace",
+  "base_commit": "5724c9a548dae880ada8c68eaca679b8835ca865",
+  "files": [
+    {
+      "path": "ASSET-PROMPTS.txt",
+      "sha256": "c2e3e54702e29fe74c05e99b62c0156dc2d920a4d4f9dae62486c599c2199e9f"
+    },
+    {
+      "path": "CATALOG_ENV.example",
+      "sha256": "118b4efd7e8ac9a262a27c3882f8031194021aa4e23abc0bc13a46767fdea71a"
+    },
+    {
+      "path": "CITRUS-PRODUCTS-SETUP.md",
+      "sha256": "61aaecfcefec868831b53d0e72c00153dbad540cef00a9e70cdb3a1af3a10533"
+    },
+    {
+      "path": "VERIFICATION.txt",
+      "sha256": "a5ae5608551fe24fa63976e883182597f1c74451896b93648ba81a0fce6ba702"
+    },
+    {
+      "path": "app/about/page.js",
+      "sha256": "08142004de386755493e1514d38e9c0fdd15f5cdd05d3a379f0b31002324449e"
+    },
+    {
+      "path": "app/admin/catalogs/page.js",
+      "sha256": "9c1992f315981d4d8f4b397c3ce342d52e688adc6e4b0dc6ca626cc017afdf7b"
+    },
+    {
+      "path": "app/admin/layout.js",
+      "sha256": "99d132e3edb4bae8129a01ce57f230b64d09a0d2d506e994837c46261db471f5"
+    },
+    {
+      "path": "app/admin/products/add/page.js",
+      "sha256": "6e742d7eb5927c5ab6812a773eb3dca2b67f97c736db074aeb3e2d1f8b42641a"
+    },
+    {
+      "path": "app/admin/products/edit/[id]/page.js",
+      "sha256": "360f6a35da385d2c56189c6a7114fe51326f0457561b7350f8491ad5f7dd767c"
+    },
+    {
+      "path": "app/admin/products/page.js",
+      "sha256": "061740e417e8acd36c8fdd55b017fca1da47f7feb84a89ae622ff575ea468658"
+    },
+    {
+      "path": "app/api/admin/catalogs/[id]/process/route.js",
+      "sha256": "43940253c079f1c91bc1901ad64a41ee4d8eb1db4f048be20d552269fdd7db83"
+    },
+    {
+      "path": "app/api/admin/catalogs/[id]/route.js",
+      "sha256": "daaddeed7c9a7938b8baaab87029a3353dd92b7d12b25bef8257810ce4dd4594"
+    },
+    {
+      "path": "app/api/admin/catalogs/route.js",
+      "sha256": "13db24b1453fbba2634bbaa197eef2ec382cb0385fcc1ea0be1458052c7db0d5"
+    },
+    {
+      "path": "app/api/admin/products/[id]/route.js",
+      "sha256": "929c69dd3ac8d33247d421952e44d6029321fae137d2721512a7c213c9c4e7d5"
+    },
+    {
+      "path": "app/api/admin/products/route.js",
+      "sha256": "dd9da31df5a2c73e90509706887a01984448b89ce75482cff40404364f48bdaa"
+    },
+    {
+      "path": "app/api/auth/send-otp/route.js",
+      "sha256": "8900649bd0c83cdf18d94da893aa424220cd7c223dd718e4589e0dc2e407a7c7"
+    },
+    {
+      "path": "app/api/categories/route.js",
+      "sha256": "fc35ea4ac78749c82443b4d8186d22934e9cfdeadf5e902488ddc817fb9a390f"
+    },
+    {
+      "path": "app/api/orders/route.js",
+      "sha256": "08891aa1c96d1bead5421d6835357187ce933e0f37d8027de17787f35e605bb4"
+    },
+    {
+      "path": "app/api/products/[id]/route.js",
+      "sha256": "30c6c454c8118b3dae0d1c22e982e6a53f7f2d7e525968920151604d8c75c0c4"
+    },
+    {
+      "path": "app/api/products/route.js",
+      "sha256": "dd9b86cfbea3c4cf4ef6c0e18d2df24c9795b0400c7967452a1c6f3efdd34254"
+    },
+    {
+      "path": "app/api/stripe/checkout/route.js",
+      "sha256": "7b4e4afdf35676aa412cd28c0d99966a49cdaf5f0d6307b01725153881a35128"
+    },
+    {
+      "path": "app/api/upload/route.js",
+      "sha256": "4a3b7c84fd8f575d1a57f1f87afa420ea9b15b40e9324ad80cf85015f2744dba"
+    },
+    {
+      "path": "app/category/[slug]/page.js",
+      "sha256": "8c0e2ab615ed2d3495d37e8b94e64f3b9ea06e09a774dd43affe9acad4cb79b3"
+    },
+    {
+      "path": "app/checkout/page.js",
+      "sha256": "004223b9f4d81356f3e2a5275b2f216a667835fdc8362e22f2683891906b5242"
+    },
+    {
+      "path": "app/checkout/success/page.js",
+      "sha256": "92fc1c1b45720e224dbc437cf8a417e81be0110d057ea8860e181e2abdbc93cd"
+    },
+    {
+      "path": "app/faq/page.js",
+      "sha256": "aff5659d102587a8e7f7e895143520300c1863fc93cb7840dee9b67bc33b7869"
+    },
+    {
+      "path": "app/layout.js",
+      "sha256": "2d5497817524b7e46f672e8e10dcce49dbe72148ab1f0ee72b0e53922f3a980f"
+    },
+    {
+      "path": "app/login/page.js",
+      "sha256": "81463fdda428da7555c4a27fcaaa8e0c5934402dc320421c799188d74ea88829"
+    },
+    {
+      "path": "app/packages/page.js",
+      "sha256": "8b267c3bbdee6ef32b2c9611a583e312857cdba1013da352fec1894f31f64c2f"
+    },
+    {
+      "path": "components/AdminSidebar.js",
+      "sha256": "f0120946927e62287deb4c339a534fc82f60ad7cb15179c3daf0ad69df5161f7"
+    },
+    {
+      "path": "components/BrandLogo.js",
+      "sha256": "203ba4ca8c046ac5fb7d96434979e1f22cca725a337c6f3f7c96051fc4219f6c"
+    },
+    {
+      "path": "components/FlashSales.js",
+      "sha256": "8f80b518252e274533ea092b9ffc020dbce3494208997143d856fbe767073ce6"
+    },
+    {
+      "path": "components/Footer.js",
+      "sha256": "9d65babd38dc48f1200b5cea3c66c2189155c0a6d89d6c64aa6cfae5b3ee7c13"
+    },
+    {
+      "path": "components/HeroSection.js",
+      "sha256": "96b52b063767eb92aee0cdc8eec1f9ecbbc911d7340e9b2c95ca6b8a7a304bfe"
+    },
+    {
+      "path": "components/Navbar.js",
+      "sha256": "77998a98d0a8ef51a124e66064cadfc7a786f8a9ded97d19372a98a04c903a29"
+    },
+    {
+      "path": "components/TopBar.js",
+      "sha256": "aef5212c0facdb2386a7a0b9486c5c71864ff68e9c91b0f2f46802f9799a8850"
+    },
+    {
+      "path": "database/01-citrus-products.sql",
+      "sha256": "da2fe10e2e48a712e9fc1d2fa442b6a57d381f25c441f8909d7fae799576625a"
+    },
+    {
+      "path": "database/02-office-products-only.sql",
+      "sha256": "a62d10fd92ece40465345164e48ce4c4702ec090507be913f5fcc33fc341dd75"
+    },
+    {
+      "path": "db/schema.js",
+      "sha256": "6329983fa1bae9524235b8a9f66a66464d00272a0abba509feb4565ed6bca308"
+    },
+    {
+      "path": "lib/admin-access.js",
+      "sha256": "172d03f40d1e5c8a649b44f0d30ed7a626c2dcf16d2beaddebb79dccf065cf70"
+    },
+    {
+      "path": "lib/catalog/extract.js",
+      "sha256": "c07e2cc3cd440b4452c28651454e694e503d8d8c84b61ac741046b39e06f800c"
+    },
+    {
+      "path": "lib/catalog/normalize.js",
+      "sha256": "04743d36c43f2e8b1162f73ece91a6b625f21f41242b9185a7ca7b2635a882c7"
+    },
+    {
+      "path": "lib/catalog/persist.js",
+      "sha256": "d29223c0a7be387e125e0a0e5629b8b33dca3f938e6bb0aa969e1ef0d84a8d73"
+    },
+    {
+      "path": "lib/catalog/safe-fetch.js",
+      "sha256": "f38f8852c0a536c26ba5d70ca69c30f0bc7930704edd3ceb491f8f92e392fff4"
+    },
+    {
+      "path": "lib/catalog/source.js",
+      "sha256": "0b3935d248659b518525bc2608bf69c947e34be7eed888f798ba9a9145201772"
+    },
+    {
+      "path": "lib/getSalePrice.js",
+      "sha256": "8b65cc51087e55741d8fc393bd0146bfc665a53650f04e63b6749bf95e4f2019"
+    },
+    {
+      "path": "lib/office-categories.js",
+      "sha256": "e86a09a29b3619ad437d84c1edd094308ad142329ef864c5db5989ad8b6eff5c"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "feb4bb7d1be43198236308e5242489a979711417130ccc7f3d3b257d53768d92"
+    },
+    {
+      "path": "package.json",
+      "sha256": "b00e71568970520bd1e563ea42fe973f33775c50b81d8f2e6ff2407163a69714"
+    },
+    {
+      "path": "proxy.js",
+      "sha256": "ce043e781fdfc1e113bcb3a6ba0bc8db08aeff163be3e657a29f55db569c0be2"
+    },
+    {
+      "path": "public/images/citrus-products-logo.png",
+      "sha256": "fe949a5e37c2cbe7f04ff1f4843df7f0ce13cabeef456aff8496f7ee695593d8"
+    },
+    {
+      "path": "public/images/office-essentials-hero.png",
+      "sha256": "c5d66ef56e5114ed9f4a85eac029fe093ef09b988d6e21fa112ee8302f1081ef"
+    },
+    {
+      "path": "public/images/office-product-fallback.svg",
+      "sha256": "f8148dc5876b21fb6374e6d1d76aec818e5b81b34858095b6a48f72eb6a944f4"
+    },
+    {
+      "path": "tests/catalog-import.test.mjs",
+      "sha256": "9c3a308f69f0f3d6798002f40c49f6a045004fecb8bb3d50482c3b46fded9815"
+    }
+  ]
+}

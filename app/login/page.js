@@ -53,7 +53,7 @@ export default function LoginPage() {
                 <div className="w-full px-6 lg:w-[371px] lg:px-0">
                     <div className="w-full">
                         <h1 className="inter text-[36px] font-medium leading-[30px] tracking-[0.04em] text-black">
-                            Log in to Citrus Marketplace
+                            Log in to Citrus Products
                         </h1>
 
                         <p className="mt-[34px] poppins text-[16px] leading-[24px] text-black">

@@ -24,7 +24,7 @@ export async function POST(req) {
   const origin = getAppUrl(req);
   const session = await stripe.checkout.sessions.create({
    mode:"payment", payment_method_types:["card"], customer_email:order.email || undefined,
-   line_items:[{price_data:{currency:"usd",product_data:{name:`Citrus Marketplace order ${order.id}`},unit_amount:amount},quantity:1}],
+   line_items:[{price_data:{currency:"usd",product_data:{name:`Citrus Products order ${order.id}`},unit_amount:amount},quantity:1}],
    metadata:{orderId:order.id}, client_reference_id:order.id,
    success_url:`${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
    cancel_url:`${origin}/checkout?cancelled=1`,

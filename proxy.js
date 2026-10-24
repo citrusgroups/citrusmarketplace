@@ -26,6 +26,10 @@ export function proxy(req) {
     "/signup",
     "/contact",
     "/products",
+    "/services",
+    "/packages",
+    "/faq",
+    "/search",
   ];
 
   const isPublicRoute =

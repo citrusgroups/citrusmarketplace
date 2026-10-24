@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 export default function Footer() {
     const groups = [
         [
@@ -39,35 +40,10 @@ export default function Footer() {
             <div className="mx-auto max-w-[1170px] px-4 py-16">
                 <div className="mb-10 flex flex-wrap items-center justify-between gap-6">
                     <Link href="/" className="block px-3 py-4">
-                        <div className="relative w-[190px]">
-                            {/* White text */}
-                            <img
-                                src="/images/citrus-marketplace-logo.png"
-                                alt="Citrus Marketplace"
-                                className="block h-auto w-full brightness-0 invert"
-                            />
-
-                            {/* Original orange symbol */}
-                            <img
-                                src="/images/citrus-marketplace-logo.png"
-                                alt=""
-                                aria-hidden="true"
-                                className="absolute inset-0 h-auto w-full"
-                                style={{ clipPath: "inset(0 77% 0 0)" }}
-                            />
-
-                            {/* Original orange dot */}
-                            <img
-                                src="/images/citrus-marketplace-logo.png"
-                                alt=""
-                                aria-hidden="true"
-                                className="absolute inset-0 h-auto w-full"
-                                style={{ clipPath: "inset(0 0 0 92%)" }}
-                            />
-                        </div>
+                        <BrandLogo dark className="w-[190px]" />
                     </Link>
                     <p className="max-w-md text-sm leading-7 text-white/70">
-                        Built by four friends, with a shared commitment to thoughtful
+                        Founded by four friends in 2024, with a shared commitment to dependable office
                         products and practical support for Amazon businesses.
                     </p>
                 </div>
@@ -89,7 +65,7 @@ export default function Footer() {
                 </div>
             </div>
             <p className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/60">
-                © {new Date().getFullYear()} Citrus Marketplace. All rights reserved.
+                © {new Date().getFullYear()} Citrus Products. All rights reserved.
             </p>
         </footer>
     );

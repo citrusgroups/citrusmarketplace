@@ -1,8 +1,10 @@
+import {requireAdmin} from "@/lib/admin-access";
 import { supabase } from "../../../lib/supabase";
 import { nanoid } from "nanoid";
 
 export async function POST(req) {
     try {
+        await requireAdmin(req);
         const formData = await req.formData();
         const file = formData.get("file");
 
@@ -21,7 +23,7 @@ export async function POST(req) {
             });
 
         if (error) {
-            return Response.json({ error: error.message }, { status: 500 });
+            return Response.json({ error: error.message }, { status: error.status || 500 });
         }
 
         const { data } = supabase.storage
@@ -34,7 +36,7 @@ export async function POST(req) {
     } catch (error) {
         return Response.json(
             { error: error.message || "Upload failed" },
-            { status: 500 }
+            { status: error.status || 500 }
         );
     }
 }

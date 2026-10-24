@@ -15,8 +15,8 @@ export const metadata = {
     icon: [{ url: "/citrus-icon.svg?v=2", type: "image/svg+xml" }],
     shortcut: "/favicon.ico?v=2",
   },
-  title: { default: "Citrus Marketplace | Products & Amazon Services", template: "%s | Citrus Marketplace" },
-  description: "Discover products and practical Amazon wholesale, product research, listing and account management support from Citrus Marketplace.",
+  title: { default: "Citrus Products | Office Supplies & Amazon Services", template: "%s | Citrus Products" },
+  description: "Discover office supplies, paper, stationery and practical Amazon wholesale, product research, listing and account management support from Citrus Products.",
 };
 export default function RootLayout({ children }) {
   return (
